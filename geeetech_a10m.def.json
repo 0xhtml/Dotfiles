@@ -1,0 +1,81 @@
+{
+    "name": "Geeetech A10M",
+    "version": 2,
+    "inherits": "fdmprinter",
+    "metadata": {
+        "visible": true,
+        "author": "0xhtml",
+        "manufacturer": "Geeetech",
+        "file_formats": "text/x-gcode",
+        "machine_extruder_trains":
+        {
+            "0": "geeetech_a10m_extruder_0",
+            "1": "geeetech_a10m_extruder_1"
+        }
+    },
+    "overrides": {
+        "machine_name": {
+            "default_value": "Geeetech A10M"
+        },
+        "machine_width": {
+            "default_value": 235
+        },
+        "machine_height": {
+            "default_value": 260
+        },
+        "machine_depth": {
+            "default_value": 235
+        },
+        "machine_heated_bed": {
+            "default_value": true
+        },
+        "gantry_height": {
+            "default_value": 30
+        },
+        "machine_nozzle_heat_up_speed": {
+            "default_value": 6
+        },
+        "machine_nozzle_cool_down_speed": {
+            "default_value": 4
+        },
+        "machine_head_with_fans_polygon": {
+            "default_value": 
+            [
+                [-26, 19],
+                [-26, -23],
+                [26, -23],
+                [26, 19]
+            ]
+        },
+        "machine_min_cool_heat_time_window": {
+            "default_value": 3600
+        },
+        "material_diameter": {
+            "default_value": 1.75
+        },
+        "adhesion_type": {
+            "default_value": "skirt"
+        },
+        "top_bottom_thickness": {
+            "default_value": 0.6
+        },
+        "retraction_amount": {
+            "default_value": 60
+        },
+        "retraction_speed": {
+            "default_value": 60
+        },
+        "machine_extruder_count": {
+            "default_value": 2
+        },
+        "speed_print": {
+            "default_value": 70
+        },
+        "material_flow": {
+            "default_value": 95
+        },
+        "machine_start_gcode": {
+            "default_value": ";Set up colors\nM163 S0 P1\nM163 S1 P0\nM164 S0\nM163 S0 P0\nM163 S1 P1\nM164 S1\nG28 ;Home\nG1 Z15.0 F6000 ;Move the platform down 15mm\n;Prime the extruder\nG92 E0\nG1 F200 E3\nG92 E0"
+        }
+    }
+}
