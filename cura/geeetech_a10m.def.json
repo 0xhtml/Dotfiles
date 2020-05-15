@@ -39,7 +39,7 @@
             "default_value": 4
         },
         "machine_head_with_fans_polygon": {
-            "default_value": 
+            "default_value":
             [
                 [-26, 19],
                 [-26, -23],
@@ -54,13 +54,13 @@
             "default_value": 1.75
         },
         "adhesion_type": {
-            "default_value": "skirt"
+            "default_value": "brim"
         },
         "top_bottom_thickness": {
             "default_value": 0.6
         },
         "retraction_amount": {
-            "default_value": 60
+            "default_value": 15
         },
         "retraction_speed": {
             "default_value": 60
@@ -79,7 +79,7 @@
         },
         "material_print_temperature": {
             "default_value": 210
-        }
+        },
         "material_bed_temperature": {
             "default_value": 65
         }
