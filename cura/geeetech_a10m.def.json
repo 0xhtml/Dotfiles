@@ -76,6 +76,12 @@
         },
         "machine_start_gcode": {
             "default_value": ";Set up colors\nM163 S0 P1\nM163 S1 P0\nM164 S0\nM163 S0 P0\nM163 S1 P1\nM164 S1\nG28 ;Home\nG1 Z15.0 F6000 ;Move the platform down 15mm\n;Prime the extruder\nG92 E0\nG1 F200 E3\nG92 E0"
+        },
+        "material_print_temperature": {
+            "default_value": 210
+        }
+        "material_bed_temperature": {
+            "default_value": 65
         }
     }
 }
