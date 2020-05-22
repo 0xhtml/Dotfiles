@@ -1,7 +1,7 @@
 {
-    "name": "Geeetech A10M",
+    "name": "Custom Geeetech A10M",
     "version": 2,
-    "inherits": "fdmprinter",
+    "inherits": "geeetech_A10M",
     "metadata": {
         "visible": true,
         "author": "0xhtml",
@@ -9,19 +9,16 @@
         "file_formats": "text/x-gcode",
         "machine_extruder_trains":
         {
-            "0": "geeetech_a10m_extruder_0",
-            "1": "geeetech_a10m_extruder_1"
+            "0": "geeetech_A10M_1",
+            "1": "geeetech_A10M_2"
         }
     },
     "overrides": {
         "machine_name": {
-            "default_value": "Geeetech A10M"
+            "default_value": "Custom Geeetech A10M"
         },
         "machine_width": {
             "default_value": 235
-        },
-        "machine_height": {
-            "default_value": 260
         },
         "machine_depth": {
             "default_value": 235
@@ -29,23 +26,11 @@
         "machine_heated_bed": {
             "default_value": true
         },
-        "gantry_height": {
-            "default_value": 30
-        },
         "machine_nozzle_heat_up_speed": {
             "default_value": 6
         },
         "machine_nozzle_cool_down_speed": {
             "default_value": 4
-        },
-        "machine_head_with_fans_polygon": {
-            "default_value":
-            [
-                [-26, 19],
-                [-26, -23],
-                [26, -23],
-                [26, 19]
-            ]
         },
         "machine_min_cool_heat_time_window": {
             "default_value": 3600
@@ -56,17 +41,8 @@
         "adhesion_type": {
             "default_value": "brim"
         },
-        "top_bottom_thickness": {
-            "default_value": 0.6
-        },
         "retraction_amount": {
             "default_value": 15
-        },
-        "retraction_speed": {
-            "default_value": 60
-        },
-        "machine_extruder_count": {
-            "default_value": 2
         },
         "speed_print": {
             "default_value": 70
