@@ -1,0 +1,4 @@
+configuration {
+    modi: "drun";
+    theme: "/home/finn/.config/rofi/theme.rasi";
+}
