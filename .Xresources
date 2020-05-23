@@ -1,0 +1,20 @@
+*background: #353531
+*foreground: #fefcfe
+*color0: #353531
+*color1: #e85155
+*color2: #7db723
+*color3: #e8b835
+*color4: #1776b2
+*color5: #604586
+*color6: #3da5d9
+*color7: #f7f0f5
+*color8: #474744
+*color9: #ff595e
+*color10: #89be37
+*color11: #ffca3a
+*color12: #1982c4
+*color13: #6a4c93
+*color14: #79ceea
+*color15: #fefcfe
+
+URxvt.scrollBar: False

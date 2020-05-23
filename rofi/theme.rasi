@@ -3,7 +3,7 @@
  * Rofi version: 1.5.4
  **/
 * {
-    red:                         rgba ( 229, 111, 117, 100 % );
+    red:                         #e8b835;
     selected-active-foreground:  var(background-color);
     lightfg:                     var(red);
     separatorcolor:              var(foreground);
@@ -20,12 +20,12 @@
     urgent-background:           var(background);
     alternate-normal-foreground: var(foreground);
     selected-active-background:  var(blue);
-    background:                  rgba ( 24, 25, 28, 70 % );
+    background:                  #353531;
     selected-normal-foreground:  var(foreground);
     active-background:           var(background);
     alternate-active-foreground: var(blue);
     alternate-normal-background: var(lightbg);
-    foreground:                  rgba ( 251, 242, 232, 100 % );
+    foreground:                  #fefcfe;
     selected-urgent-background:  var(red);
     selected-urgent-foreground:  var(background);
     normal-foreground:           var(foreground);

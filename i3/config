@@ -5,8 +5,10 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dropbox
 exec --no-startup-id pasystray
 exec --no-startup-id keepassxc
-exec --no-startup-id feh --bg-scale /home/finn/.config/i3/bg.png
-exec --no-startup-id picom --blur-background 
+exec --no-startup-id feh --bg-scale .config/i3/bg.png
+exec --no-startup-id picom --blur-background --no-fading-openclose
+exec --no-startup-id autocutsel
+exec --no-startup-id redshift
 
 
 bindsym $mod+Return exec i3-sensible-terminal
@@ -64,20 +66,38 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+set_from_resource $color0 color0
+set_from_resource $color1 color1
+set_from_resource $color2 color2
+set_from_resource $color3 color3
+set_from_resource $color4 color4
+set_from_resource $color5 color5
+set_from_resource $color6 color6
+set_from_resource $color7 color7
+set_from_resource $color8 color8
+set_from_resource $color9 color9
+set_from_resource $color10 color10
+set_from_resource $color11 color11
+set_from_resource $color12 color12
+set_from_resource $color13 color13
+set_from_resource $color14 color14
+set_from_resource $color15 color15
+
+
 bar {
     colors {
-        background #18191c
-        statusline #fbf2e8
-        focused_workspace #ffc09f #e56f75 #fbf2e8
-        inactive_workspace #ffc09f #18191c #fbf2e8
+        background $color0
+        statusline $color15
+        focused_workspace  $color3 $color3 $color15
+        inactive_workspace $color3 $color0 $color15
     }
     status_command i3status
     tray_padding 2
 }
 
 
-client.focused   #e56f75 #18191c #fbf2e8 #e56f75 #e56f75
-client.unfocused #ffc09f #18191c #fbf2e8 #ffc09f #ffc09f
+client.focused   $color3 $color0 $color15 $color3 $color3
+client.unfocused $color8 $color0 $color15 $color8 $color8
 
 
 for_window [class="^.*"] border pixel 2
