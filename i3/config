@@ -5,7 +5,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dropbox
 exec --no-startup-id pasystray
 exec --no-startup-id keepassxc
-exec --no-startup-id feh --bg-scale .config/i3/bg.png
 exec --no-startup-id autocutsel
 exec --no-startup-id redshift
 
@@ -97,6 +96,7 @@ bar {
 
 client.focused   $color3 $color0 $color15 $color3 $color3
 client.unfocused $color8 $color0 $color15 $color8 $color8
+exec --no-startup-id xsetroot -solid "$color8"
 
 
 for_window [class="^.*"] border pixel 2
