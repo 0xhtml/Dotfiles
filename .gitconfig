@@ -1,3 +1,5 @@
 [user]
 	name = 0xhtml
 	email = 34682885+0xhtml@users.noreply.github.com
+[core]
+	editor = vim
