@@ -63,6 +63,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+bindsym XF86MonBrightnessUp exec brightnessctl -n1 s +10%
+bindsym XF86MonBrightnessDown exec brightnessctl -n1 s 10%-
+bindsym XF86Standby exec "i3-navbar -m 'lol'"
+
 
 set_from_resource $color0 color0
 set_from_resource $color1 color1
