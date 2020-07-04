@@ -1,0 +1,17 @@
+[global]
+    geometry = "350x5-12+12"
+    horizontal_padding = 8
+    frame_width = 2
+    frame_color = "#e8b835"
+    separator_color = frame
+    format = "<b>%s</b>\n%b"
+    font = DejaVu Sans Mono 10
+    word_wrap = yes
+
+[shortcuts]
+    close = mod4+m
+    close_all = mod4+n
+
+[urgency_normal]
+    background = "#353531"
+    foreground = "#fefcfe"
