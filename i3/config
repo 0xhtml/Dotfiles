@@ -11,7 +11,6 @@ exec --no-startup-id udiskie -t
 exec --no-startup-id dunst
 
 
-bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+v exec i3-sensible-terminal
 
 bindsym $mod+c kill
@@ -73,7 +72,6 @@ bindsym $mod+r mode "resize"
 
 bindsym XF86MonBrightnessUp exec brightnessctl -n1 s +10%
 bindsym XF86MonBrightnessDown exec brightnessctl -n1 s 10%-
-bindsym XF86Standby exec "i3-navbar -m 'lol'"
 
 
 set_from_resource $color0 color0
