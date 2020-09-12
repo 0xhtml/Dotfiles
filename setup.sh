@@ -7,4 +7,4 @@ cp .Xresources $HOME
 cp -r dunst $HOME/.config
 cp -r i3 $HOME/.config
 cp -r rofi $HOME/.config
-cp custom_geeetech_A10M.def.json $HOME/.local/share/cura/4.5/definitions
+cp custom_geeetech_A10M.def.json $HOME/.local/share/cura/4.7/definitions
