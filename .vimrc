@@ -13,11 +13,8 @@ Plug 'valloric/youcompleteme'
 call plug#end()
 map m :NERDTreeVCS<CR>
 autocmd BufWritePost *.tex silent !
-  \ e='<afile>' &&
-  \ ne=${e\%.*} &&
-  \ nf=${e\%/*} &&
-  \ pdflatex -interaction=nonstopmode -output-directory="$nf" "$e" >/dev/null &&
-  \ rm -f "${ne}.log" "${ne}.tox" "${ne}.aux" &&
-  \ w=`xdotool search --class mupdf` &&
-  \ [ "$w" \!= "" ] &&
-  \ xdotool key --window "$w" r
+  \ latexmk -pdf -cd -silent "<afile>" &>/dev/null &&
+  \ latexmk -c -cd -silent "<afile>" &&
+  \ (xdotool key --window `xdotool search --class mupdf` r &>/dev/null ||
+  \ fn="<afile>" &&
+  \ (mupdf "${fn\%.*}.pdf" </dev/null &>/dev/null &))
