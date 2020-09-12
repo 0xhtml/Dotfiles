@@ -18,10 +18,13 @@
             "default_value": "Custom Geeetech A10M"
         },
         "machine_width": {
-            "default_value": 235
+            "default_value": 230
         },
         "machine_depth": {
-            "default_value": 235
+            "default_value": 230
+        },
+        "machine_height": {
+            "default_value": 260
         },
         "machine_heated_bed": {
             "default_value": true
@@ -32,8 +35,8 @@
         "machine_nozzle_cool_down_speed": {
             "default_value": 4
         },
-        "machine_min_cool_heat_time_window": {
-            "default_value": 3600
+        "machine_extruders_share_heater": {
+            "default_value": true
         },
         "material_diameter": {
             "default_value": 1.75
@@ -45,13 +48,7 @@
             "default_value": 15
         },
         "speed_print": {
-            "default_value": 70
-        },
-        "material_flow": {
-            "default_value": 95
-        },
-        "machine_start_gcode": {
-            "default_value": ";Set up colors\nM163 S0 P1\nM163 S1 P0\nM164 S0\nM163 S0 P0\nM163 S1 P1\nM164 S1\nG28 ;Home\nG1 Z15.0 F6000 ;Move the platform down 15mm\n;Prime the extruder\nG92 E0\nG1 F200 E3\nG92 E0"
+            "default_value": 75
         },
         "material_print_temperature": {
             "default_value": 210
