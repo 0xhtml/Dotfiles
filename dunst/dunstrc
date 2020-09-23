@@ -1,5 +1,5 @@
 [global]
-    geometry = "350x5-12+12"
+    geometry = "350x5-18+18"
     horizontal_padding = 8
     frame_width = 2
     frame_color = "#e8b835"
@@ -7,11 +7,23 @@
     format = "<b>%s</b>\n%b"
     font = DejaVu Sans Mono 10
     word_wrap = yes
+    show_indicators = false
 
 [shortcuts]
     close = mod4+m
     close_all = mod4+n
 
+[urgency_low]
+    background = "#353531"
+    foreground = "#fefcfe"
+    frame_color = "#474744"
+
 [urgency_normal]
     background = "#353531"
     foreground = "#fefcfe"
+    frame_color = "#e8b835"
+
+[urgency_critical]
+    background = "#353531"
+    foreground = "#fefcfe"
+    frame_color = "#e85155"
