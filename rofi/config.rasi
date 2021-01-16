@@ -1,5 +1,31 @@
 configuration {
     modi: "drun";
+    drun-display-format: "{name}";
     font: "DejaVu Sans Mono 10";
-    theme: "/home/finn/.config/rofi/theme.rasi";
+}
+* {
+    background-color: #353531;
+    text-color: #fefcfe;
+    border-color: #e8b835;
+}
+window {
+    padding: 5;
+    border: 2;
+}
+listview {
+    padding: 2 0 0;
+    scrollbar: true;
+    border: 2 dash 0 0;
+}
+element, inputbar {
+    padding: 1;
+}
+element selected {
+    background-color: @border-color;
+}
+scrollbar {
+    handle-color: @text-color;
+}
+inputbar {
+    children: [entry];
 }
