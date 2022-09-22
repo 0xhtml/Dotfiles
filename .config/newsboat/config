@@ -1,0 +1,34 @@
+reload-threads 2
+keep-articles-days 14
+
+browser firefox
+macro m set browser mpv; open-in-browser; set browser firefox
+macro y set browser yt-dlp; open-in-browser; set browser firefox
+
+show-keymap-hint no
+feedlist-title-format "Feeds"
+feedlist-format "%2i %n %8u %?T?[%T] ?%t"
+articlelist-title-format "%T"
+articlelist-format "%2i %n %D -- %t"
+
+unbind-key -a
+bind-key l open
+bind-key h quit
+bind-key q hard-quit
+bind-key r reload
+bind-key R reload-all
+bind-key n next-unread
+bind-key o open-in-browser
+bind-key N toggle-article-read
+bind-key / open-search
+bind-key k up
+bind-key j down
+bind-key i macro-prefix
+
+color listnormal        white black
+color listnormal_unread white black bold
+color listfocus         white color19
+color listfocus_unread  white color19 bold
+color info              white color18
+color background        white black
+color article           white black

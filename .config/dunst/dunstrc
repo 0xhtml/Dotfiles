@@ -1,0 +1,25 @@
+[global]
+    follow = mouse
+    horizontal_padding = 8
+    frame_width = 2
+    frame_color = "#44475A"
+    separator_color = frame
+    format = "<b>%s</b>\n%b"
+    font = DejaVu Sans Mono 10
+    word_wrap = yes
+    show_indicators = false
+
+[urgency_low]
+    background = "#282a36"
+    foreground = "#6272a4"
+    timeout = 10
+
+[urgency_normal]
+    background = "#282a36"
+    timeout = 10
+
+[urgency_critical]
+    background = "#ff5555"
+    foreground = "#f8f8f2"
+    frame_color = "#ff5555"
+    timeout = 0

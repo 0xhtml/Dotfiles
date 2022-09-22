@@ -1,0 +1,2 @@
+-f 'bestvideo[width<=1920]+bestaudio/best[width<=1920]'
+--restrict-filenames

@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=nnn
+Exec=footclient -e nnn %u

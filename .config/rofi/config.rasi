@@ -1,0 +1,6 @@
+configuration {
+    modi: "drun";
+    drun-display-format: "{name}";
+    font: "DejaVu Sans Mono 10";
+}
+@theme "theme.rasi"

@@ -1,0 +1,101 @@
+"fix underline
+let &t_Cs="\e[4:3m"
+let &t_Ce="\e[4:0m"
+
+colorscheme dracula
+
+filetype plugin indent on
+syntax on
+
+set autoindent
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+
+set nrformats-=octal
+
+set ttimeout
+set ttimeoutlen=5
+
+set incsearch
+set ignorecase
+set smartcase
+
+set wildmenu
+
+set scrolloff=3
+set sidescrolloff=5
+set display+=lastline
+
+set formatoptions+=j
+
+set autoread
+
+set history=1000
+
+set sessionoptions-=options
+set viewoptions-=options
+
+set colorcolumn=80,120
+set number
+
+set undofile
+set undodir=~/.vim/undo
+
+set completeopt-=preview
+
+set foldmethod=syntax
+set foldnestmax=1
+
+"go back to last position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" move through visual lines
+noremap <silent> k gk
+noremap <silent> j gj
+noremap <silent> 0 g0
+noremap <silent> $ g$
+
+command LatexBuild execute "!latexmk -outdir=/tmp -pdf % % && rmupdf.sh /tmp/%:t:r.pdf"
+command LatexCheck execute "!textidote --output html --check" &spelllang "--dict ~/.vim/spell/" . &spelllang . ".utf-8.add % > /tmp/%:t.html || firefox /tmp/%:t.html"
+
+nmap ]a :ALENext -wrap -error<CR>
+nmap [a :ALEPrevious -wrap -error<CR>
+
+call submode#enter_with('resize', 'n', '', '<C-w>+', '<C-w>>')
+call submode#enter_with('resize', 'n', '', '<C-w>-', '<C-w><')
+call submode#map('resize', 'n', '', '+', '<C-w>>')
+call submode#map('resize', 'n', '', '-', '<C-w><')
+
+let g:termdebug_wide=1
+
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
+let g:ale_completion_enabled = 1
+let g:ale_linters = {
+\   'asm': [],
+\   'cpp': ['cc', 'clangd'],
+\   'python': ['flake8', 'pylsp', 'pyright'],
+\   'scss': ['stylelint'],
+\   'tex': ['chktex'],
+\   'vimwiki': [],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['isort', 'black'],
+\   'xml': ['xmllint'],
+\}
+let g:ale_alex_executable = 'alexjs'
+let g:ale_python_black_options = '--line-length 79 --target-version py310'
+let g:ale_python_flake8_options = '--extend-ignore E203'
+let g:ale_python_isort_options = '--profile black'
+let g:ale_python_pylsp_config = {
+\   'pylsp': {
+\       'plugins': {
+\           'pycodestyle': {
+\               'enabled': v:false,
+\            },
+\       },
+\   },
+\}
