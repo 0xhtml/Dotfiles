@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=nnn
-Exec=footclient -e nnn %u
+Exec=footclient -e nnn %f
