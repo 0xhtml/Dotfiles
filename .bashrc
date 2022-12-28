@@ -11,6 +11,8 @@ alias la="ll -A"
 alias n="nnn"
 alias py="python"
 alias rm="rm -i"
+alias mnt="udiskie-mount"
+alias umnt="udiskie-umount"
 hash paru 2>/dev/null || alias paru="sudo pacman"
 
 nnn_info() {
