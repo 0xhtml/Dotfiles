@@ -36,3 +36,6 @@ host_info() {
 }
 VIRTUAL_ENV_DISABLE_PROMPT=true
 PS1="\[$(tput setaf 4)\]$(host_info)\[$(tput setaf 1)\]\$(nnn_info)\$(env_info)\$(git_info)\[$(tput setaf 4)\]\w\$ \[$(tput setaf 7)\]"
+
+HISTSIZE=-1
+HISTFILESIZE=-1
