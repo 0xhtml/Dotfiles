@@ -39,3 +39,5 @@ PS1="\[$(tput setaf 4)\]$(host_info)\[$(tput setaf 1)\]\$(nnn_info)\$(env_info)\
 
 HISTSIZE=-1
 HISTFILESIZE=-1
+
+bind 'set mark-symlinked-directories on'
