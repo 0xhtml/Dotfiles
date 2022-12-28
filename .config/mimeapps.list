@@ -19,5 +19,8 @@ application/postscript=mupdf.desktop
 application/pdf=mupdf.desktop
 
 application/octet-stream=mpv.desktop
+audio/flac=mpv.desktop
 audio/mpeg=mpv.desktop
 video/mpeg=mpv.desktop
+
+text/xml=vim.desktop
