@@ -62,11 +62,6 @@ command LatexCheck execute "!textidote --output html --check" &spelllang "--dict
 nmap ]a :ALENext -wrap -error<CR>
 nmap [a :ALEPrevious -wrap -error<CR>
 
-call submode#enter_with('resize', 'n', '', '<C-w>+', '<C-w>>')
-call submode#enter_with('resize', 'n', '', '<C-w>-', '<C-w><')
-call submode#map('resize', 'n', '', '+', '<C-w>>')
-call submode#map('resize', 'n', '', '-', '<C-w><')
-
 let g:termdebug_wide=1
 
 let g:delimitMate_expand_cr = 1
