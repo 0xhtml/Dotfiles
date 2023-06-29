@@ -1,5 +1,5 @@
 configuration {
-    modi: "drun";
+    modi: "drun,window";
     drun-display-format: "{name}";
     font: "DejaVu Sans Mono 10";
 }

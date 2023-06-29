@@ -1,0 +1,113 @@
+set $mod Mod4
+
+floating_modifier $mod
+tiling_drag modifier
+
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+Tab exec --no-startup-id "rofi -show window"
+
+bindsym $mod+j focus left
+bindsym $mod+k focus right
+
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move right
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Do you really want to exit?' -B 'Yes' 'i3-msg exit'"
+
+bindsym Print exec --no-startup-id maim "$HOME/Bilder/$(date +'%F-%H-%M-%S').png"
+bindsym $mod+Print exec --no-startup-id maim --select "$HOME/Bilder/$(date +'%F-%H-%M-%S').png"
+
+bindsym $mod+u workspace number 1
+bindsym $mod+i workspace number 2
+bindsym $mod+o workspace number 3
+bindsym $mod+p workspace number 4
+bindsym $mod+7 workspace number 5
+bindsym $mod+8 workspace number 6
+bindsym $mod+9 workspace number 7
+bindsym $mod+0 workspace number 8
+
+bindsym $mod+Shift+u move container to workspace number 1
+bindsym $mod+Shift+i move container to workspace number 2
+bindsym $mod+Shift+o move container to workspace number 3
+bindsym $mod+Shift+p move container to workspace number 4
+bindsym $mod+Shift+7 move container to workspace number 5
+bindsym $mod+Shift+8 move container to workspace number 6
+bindsym $mod+Shift+9 move container to workspace number 7
+bindsym $mod+Shift+0 move container to workspace number 8
+
+mode "resize" {
+    bindsym j resize shrink width 10 px or 2 ppt
+    bindsym k resize grow width 10 px or 2 ppt
+    bindsym h resize shrink height 10 px or 2 ppt
+    bindsym l resize grow height 10 px or 2 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bindsym XF86MonBrightnessUp exec --no-startup-id bright.sh +
+bindsym XF86MonBrightnessDown exec --no-startup-id bright.sh -
+
+bindsym XF86AudioMute exec --no-startup-id vol.sh m
+bindsym XF86AudioRaiseVolume exec --no-startup-id vol.sh +
+bindsym XF86AudioLowerVolume exec --no-startup-id vol.sh -
+
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+font pango:DejaVu Sans Mono 9
+
+set $foreg #F8F8F2
+set $backg #282A36
+set $muted #44475A
+set $highl #BD93F9
+set $urgnt #FF5555
+
+#                       border bg     text   indica ch_border
+client.focused          $highl $backg $foreg $highl $highl
+client.focused_inactive $muted $backg $foreg $muted $muted
+client.unfocused        $backg $backg $foreg $backg $backg
+client.urgent           $urgnt $backg $foreg $urgnt $urgnt
+client.placeholder      $backg $backg $foreg $backg $backg
+
+client.background       $backg
+
+bar {
+    colors {
+        background $backg
+        statusline $foreg
+        separator  $muted
+
+        #                  border bg     text
+        focused_workspace  $highl $highl $backg
+        active_workspace   $muted $muted $foreg
+        inactive_workspace $muted $backg $foreg
+        urgent_workspace   $urgnt $backg $urgnt
+        binding_mode       $urgnt $backg $urgnt
+    }
+
+    status_command i3status
+    tray_padding 2
+}
+
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 12
+
+exec --no-startup-id dunst
+exec --no-startup-id playerctld
+exec --no-startup-id dex -a -e i3
+exec --no-startup-id ~/.fehbg
+exec --no-startup-id redshift
