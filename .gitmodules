@@ -4,9 +4,9 @@
 [submodule ".vim/pack/plugins/start/delimitMate"]
 	path = .vim/pack/plugins/start/delimitMate
 	url = https://github.com/Raimondi/delimitMate
-[submodule ".vim/pack/plugins/start/vim-commentary"]
-	path = .vim/pack/plugins/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary
 [submodule ".vim/pack/plugins/start/vim-sleuth"]
 	path = .vim/pack/plugins/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
+[submodule ".vim/pack/plugins/start/tcomment_vim"]
+	path = .vim/pack/plugins/start/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim
