@@ -19,6 +19,10 @@ alias mnt="udiskie-mount"
 alias umnt="udiskie-umount"
 alias rstenv="deactivate && rm -rf env && python -m venv env && . env/bin/activate"
 
+sudodiff() {
+    EDITOR="vimdiff '$1.pacnew'" sudoedit "$1"
+}
+
 nnn_info() {
     [[ -n $NNNLVL ]] && echo "(N$NNNLVL) "
 }
