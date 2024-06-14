@@ -5,19 +5,19 @@ colorscheme dracula
 filetype plugin indent on
 syntax on
 
-set expandtab
-
 set incsearch
 set ignorecase
 set smartcase
 
-set wildmenu
+set shiftwidth=4
+set tabstop=4
 
 set scrolloff=3
 set sidescrolloff=5
 set display+=lastline
 
 set formatoptions+=j
+set nojoinspaces
 
 set autoread
 
@@ -29,52 +29,34 @@ set number
 set undofile
 set undodir=~/.vim/undo
 
-set completeopt-=preview
-
 set foldmethod=syntax
 set foldnestmax=1
+autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 set spell
 
-command LatexBuild execute "!latexmk -quiet -outdir=/tmp -pdf -cd % && (rmupdf.sh /tmp/%:t:r.pdf &)"
+command LatexBuild execute "!latexmk -quiet -shell-escape -outdir=/tmp -pdf -cd % && (rmupdf.sh /tmp/%:t:r.pdf &)"
 command LatexCheck execute "!textidote --output html --check" &spelllang "--dict ~/.vim/spell/" . &spelllang . ".utf-8.add % > /tmp/%:t.html || (firefox /tmp/%:t.html &)"
 
-nmap ]a :ALENext -wrap -error<CR>
-nmap [a :ALEPrevious -wrap -error<CR>
+nmap ]a :ALENext -wrap<CR>
+nmap [a :ALEPrevious -wrap<CR>
+nmap ]e :ALENext -wrap -error<CR>
+nmap [e :ALEPrevious -wrap -error<CR>
 
-let g:termdebug_wide=1
+let g:termdebug_wide = 1
 
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
-let g:ale_completion_enabled = 1
-
+let g:ale_linters_explicit = 1
 let g:ale_linters = {
-\   'asm': [],
-\   'c': ['cc', 'clangd'],
-\   'cpp': ['cc', 'clangd'],
-\   'java': ['eclipselsp'],
-\   'python': ['flake8', 'pylsp', 'pyright'],
-\   'scss': ['stylelint'],
-\   'tex': ['chktex'],
+\   'python': ['mypy', 'ruff'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'java': ['google_java_format'],
-\   'python': ['black', 'isort'],
-\   'xml': ['xmllint'],
+\   'python': ['isort', 'ruff_format'],
 \}
-
-let g:ale_python_black_options = '--line-length 79 --target-version py310'
-let g:ale_python_flake8_options = '--extend-ignore E203'
+let g:ale_python_mypy_options = '--python-executable=env/bin/python'
+let g:ale_python_ruff_options = '--select ALL --ignore ANN1 --ignore D212 --ignore D203 --ignore FA --ignore T --ignore TD002 --ignore TD003 --ignore FIX --ignore S101'
 let g:ale_python_isort_options = '--profile black'
-let g:ale_python_pylsp_config = {
-\   'pylsp': {
-\       'plugins': {
-\           'pycodestyle': {
-\               'enabled': v:false,
-\            },
-\       },
-\   },
-\}
-let g:ale_java_eclipselsp_config_path = $HOME . '/.jdtls'
