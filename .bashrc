@@ -13,7 +13,7 @@ alias df="df -h"
 alias free="free -h"
 alias n="nnn"
 alias py="python"
-alias rm="rm -i"
+alias rm="echo 'Use trash instead of rm' && false"
 alias mv="mv -i"
 alias mnt="udiskie-mount"
 alias umnt="udiskie-umount"
@@ -23,6 +23,10 @@ alias xdg-open="mimeopen "
 
 sudodiff() {
     EDITOR="vimdiff '$1.pacnew'" sudoedit "$1"
+}
+
+trash-size() {
+    trash-list --trash-dirs | xargs du -hd0
 }
 
 nnn_info() {
