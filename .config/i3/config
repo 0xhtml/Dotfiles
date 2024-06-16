@@ -4,11 +4,13 @@ floating_modifier $mod
 tiling_drag modifier
 
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+n exec --no-startup-id i3-sensible-terminal -e nnn
 
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+Tab exec --no-startup-id "rofi -show window"
+bindsym $mod+Shift+s exec --no-startup-id .config/i3/power-menu.sh
 
 bindsym $mod+j focus left
 bindsym $mod+k focus right
@@ -17,7 +19,6 @@ bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move right
 
 bindsym $mod+f fullscreen toggle
-
 bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+Shift+r restart
@@ -56,12 +57,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym XF86MonBrightnessUp exec --no-startup-id bright.sh +
-bindsym XF86MonBrightnessDown exec --no-startup-id bright.sh -
+bindsym XF86MonBrightnessUp exec --no-startup-id .config/i3/bright.sh +
+bindsym XF86MonBrightnessDown exec --no-startup-id .config/i3/bright.sh -
 
-bindsym XF86AudioMute exec --no-startup-id vol.sh m
-bindsym XF86AudioRaiseVolume exec --no-startup-id vol.sh +
-bindsym XF86AudioLowerVolume exec --no-startup-id vol.sh -
+bindsym XF86AudioMute exec --no-startup-id .config/i3/vol.sh m
+bindsym XF86AudioRaiseVolume exec --no-startup-id .config/i3/vol.sh +
+bindsym XF86AudioLowerVolume exec --no-startup-id .config/i3/vol.sh -
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next

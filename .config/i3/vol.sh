@@ -1,17 +1,12 @@
 #!/bin/sh
 
+set -eu
+
 sink=$(pactl get-default-sink)
 value=""
 args=""
 
 if [ $1 == "m" ]; then
-    if [ -r /tmp/.vol ]; then
-        if [ $(($(date +%s%N) - $(date -r /tmp/.vol +%s%N))) -lt 200000000 ]; then
-            sink.sh &
-        fi
-    fi
-    touch /tmp/.vol
-
     if eval $(pactl --format=json list sinks | jq -r 'map(select(.name == "'$sink'"))[0].mute'); then
         pactl set-sink-mute $sink 0
     else
