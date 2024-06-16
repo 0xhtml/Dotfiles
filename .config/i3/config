@@ -102,7 +102,7 @@ bar {
         binding_mode       $urgnt $backg $urgnt
     }
 
-    status_command i3status
+    status_command py3status -b
     tray_padding 2
 }
 
