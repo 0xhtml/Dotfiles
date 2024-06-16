@@ -71,7 +71,7 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-font pango:DejaVu Sans Mono 9
+font pango:Monospace 9
 
 set $foreg #F8F8F2
 set $backg #282A36
