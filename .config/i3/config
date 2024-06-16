@@ -24,8 +24,11 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Do you really want to exit?' -B 'Yes' 'i3-msg exit'"
 
-bindsym Print exec --no-startup-id maim "$HOME/Bilder/$(date +'%F-%H-%M-%S').png"
-bindsym $mod+Print exec --no-startup-id maim --select "$HOME/Bilder/$(date +'%F-%H-%M-%S').png"
+bindsym Print exec --no-startup-id maim -u "$HOME/Bilder/$(date +'%F-%H-%M-%S').png"
+bindsym $mod+Print exec --no-startup-id maim -s -u "$HOME/Bilder/$(date +'%F-%H-%M-%S').png"
+bindsym $mod+Shift+Print exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png -i
+bindsym $mod+Shift+b exec --no-startup-id maim -u | zbarimg -1 --raw - | xclip -selection clipboard
+bindsym --release $mod+Shift+c exec --no-startup-id grabc | tr -d '\n' | xclip -selection clipboard
 
 bindsym $mod+u workspace number 1
 bindsym $mod+i workspace number 2
