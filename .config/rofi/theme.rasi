@@ -22,5 +22,10 @@ scrollbar {
     handle-color: @text-color;
 }
 inputbar {
-    children: [entry];
+    children: [prompt,textbox-colon,entry];
+}
+textbox-colon {
+    margin: 0 0.3em 0 0;
+    str: ":";
+    expand: false;
 }

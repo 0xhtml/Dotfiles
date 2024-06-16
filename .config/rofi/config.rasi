@@ -1,6 +1,7 @@
 configuration {
     modi: "drun,window";
     drun-display-format: "{name}";
+    drun-match-fields: "name,exec";
     font: "Monospace 10";
 }
 @theme "theme.rasi"
