@@ -4,7 +4,7 @@ export NNN_OPENER="mimeopen"
 export PATH="$PATH:$HOME/bin"
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-    exec startx
+    exec startx &>/dev/null
 fi
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
