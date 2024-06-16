@@ -1,6 +1,7 @@
 [[ $- != *i* ]] && return
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+for f in ~/GitHub/Dotfiles/completion/*.bash; do source $f; done
 
 alias :q="exit"
 alias diff="diff --color=auto"
