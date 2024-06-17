@@ -19,8 +19,6 @@ alias mv="mv -i"
 alias mnt="udiskie-mount"
 alias umnt="udiskie-umount"
 alias rstenv="deactivate && rm -rf env && python -m venv env && . env/bin/activate"
-alias o="mimeopen "
-alias xdg-open="mimeopen "
 
 sudodiff() {
     EDITOR="vimdiff '$1.pacnew'" sudoedit "$1"
