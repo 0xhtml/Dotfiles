@@ -1,12 +1,18 @@
 [submodule ".vim/pack/themes/start/dracula"]
 	path = .vim/pack/themes/start/dracula
 	url = https://github.com/dracula/vim
-[submodule ".vim/pack/plugins/start/delimitMate"]
-	path = .vim/pack/plugins/start/delimitMate
-	url = https://github.com/Raimondi/delimitMate
 [submodule ".vim/pack/plugins/start/vim-sleuth"]
 	path = .vim/pack/plugins/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
 [submodule ".vim/pack/plugins/start/tcomment_vim"]
 	path = .vim/pack/plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim
+[submodule ".config/alacritty/dracula"]
+	path = .config/alacritty/dracula
+	url = https://github.com/dracula/alacritty
+[submodule ".config/newsboat/dracula"]
+	path = .config/newsboat/dracula
+	url = https://github.com/dracula/newsboat
+[submodule "man-pages"]
+	path = man-pages
+	url = https://github.com/dracula/man-pages
