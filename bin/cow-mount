@@ -14,13 +14,15 @@ fi
 
 sudo modprobe nbd
 for i in $(seq 0 15); do
-    if lsblk -A /dev/nbd$i >/dev/null; then
-        cat /proc/$(cat /sys/class/block/nbd$i/pid)/cmdline | grep -q $1 || continue
+    if lsblk -A "/dev/nbd${i}" >/dev/null; then
+        PIDFILE="/sys/class/block/nbd${i}/pid"
+        grep -q "$1" "/proc/${PIDFILE}/cmdline" || continue
     else
-        sudo qemu-nbd --connect=/dev/nbd$i $1
+        sudo qemu-nbd --connect="/dev/nbd${i}" "$1"
     fi
-    sudo partprobe /dev/nbd$i
-    sudo mount /dev/$(lsblk -Jb /dev/nbd$i | jq -r '.blockdevices[0].children | sort_by(.size)[-1].name') $2
+    sudo partprobe "/dev/nbd${i}"
+    PART=$(lsblk -Jb "/dev/nbd${i}" | jq -r '.blockdevices[0].children | sort_by(.size)[-1].name')
+    sudo mount "/dev/${PART}" "$2"
     exit 0
 done
 echo "No free nbd device found"

@@ -1,0 +1,3 @@
+#!/bin/sh
+set -eu
+trash-list --trash-dirs | xargs du -hd0

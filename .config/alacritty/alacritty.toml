@@ -1,7 +1,10 @@
-import = ["~/.config/alacritty/dracula.toml"]
+import = ["~/.config/alacritty/dracula/dracula.toml"]
 
 [window]
 dynamic_padding = true
+
+[scrolling]
+history = 20000
 
 [font]
 size = 6.5
@@ -58,10 +61,6 @@ index = 236
 [[colors.indexed_colors]]
 color = "#343746"
 index = 237
-
-[[colors.indexed_colors]]
-color = "#424450"
-index = 238
 
 [[colors.indexed_colors]]
 color = "#424450"
