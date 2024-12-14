@@ -8,8 +8,13 @@ export CXX=/usr/bin/clang++
 export CC=/usr/bin/clang
 
 if [[ -z "${DISPLAY}" ]] && [[ "${XDG_VTNR}" -eq 1 ]]; then
-    export _JAVA_AWT_WM_NONREPARENTING=1
-    exec sway &>/dev/null
+    if hash sway 2>/dev/null; then
+        export _JAVA_AWT_WM_NONREPARENTING=1
+        exec sway &>/dev/null
+    fi
+    if hash startx 2>/dev/null; then
+        exec startx &>/dev/null
+    fi
 fi
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
