@@ -1,5 +1,8 @@
-reload-threads 2
+include "~/.config/newsboat/dracula/newsboat"
+
 keep-articles-days 14
+text-width 80
+download-full-page yes
 
 browser firefox
 macro m set browser mpv; open-in-browser; set browser firefox
@@ -7,7 +10,7 @@ macro y set browser yt-dlp; open-in-browser; set browser firefox
 
 show-keymap-hint no
 feedlist-title-format "Feeds"
-feedlist-format "%2i %n %8u %?T?[%T] ?%t"
+feedlist-format "%3i %n %8u %?T?[%T] ?%t"
 articlelist-title-format "%T"
 articlelist-format "%2i %n %D -- %t"
 
@@ -18,17 +21,11 @@ bind-key q hard-quit
 bind-key r reload
 bind-key R reload-all
 bind-key n next-unread
+bind-key N prev-unread
 bind-key o open-in-browser
-bind-key N toggle-article-read
+bind-key m toggle-article-read
 bind-key / open-search
 bind-key k up
 bind-key j down
 bind-key i macro-prefix
-
-color listnormal        white black
-color listnormal_unread white black bold
-color listfocus         white color19
-color listfocus_unread  white color19 bold
-color info              white color18
-color background        white black
-color article           white black
+bind-key s sort

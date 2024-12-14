@@ -1,2 +1,4 @@
--f 'bestvideo[width<=1920]+bestaudio/best[width<=1920]'
+-f "bestvideo[width<=1920]+bestaudio/best"
+-P "~/Downloads/yt-dlp"
+-o "%(uploader)s/%(title)s-%(id)s.%(ext)s"
 --restrict-filenames

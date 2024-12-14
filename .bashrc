@@ -70,3 +70,5 @@ HISTSIZE=-1
 HISTFILESIZE=-1
 
 bind 'set mark-symlinked-directories on'
+bind 'set match-hidden-files off'
+bind 'set show-all-if-ambiguous on'

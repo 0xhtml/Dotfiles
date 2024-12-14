@@ -16,3 +16,6 @@
 [submodule "man-pages"]
 	path = man-pages
 	url = https://github.com/dracula/man-pages
+[submodule ".config/sway/zzzfoo"]
+	path = .config/sway/zzzfoo
+	url = https://github.com/andersju/zzzfoo
