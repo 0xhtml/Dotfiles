@@ -16,6 +16,8 @@ unset MANPAGES
 
 unset DOTFILES
 
+eval "$(dircolors -p | sed 's/TERM Eterm/TERM foot\n&/' | dircolors -)"
+
 [[ -r "/usr/share/z/z.sh" ]] && . /usr/share/z/z.sh
 
 alias diff="diff --color=auto"
