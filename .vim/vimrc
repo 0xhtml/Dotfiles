@@ -1,4 +1,5 @@
 let &t_Cs="\e[4:3m"
+let mapleader = ","
 
 colorscheme dracula
 
@@ -8,78 +9,48 @@ syntax on
 set incsearch
 set ignorecase
 set smartcase
-
 set shiftwidth=4
 set tabstop=4
-
 set scrolloff=3
 set sidescrolloff=5
 set display+=lastline
-
-set noesckeys
-
 set formatoptions+=j
 set nojoinspaces
-
-set autoread
-
 set history=1000
-
 set colorcolumn=80,120
 set number
-
 set undofile
 set undodir=~/.vim/undo
-
 set foldmethod=syntax
-set foldnestmax=1
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
+set foldnestmax=2
 set spell
-
 set completeopt-=preview
 
-command LatexBuild execute "!latexmk -quiet -shell-escape -outdir=/tmp -pdf -cd % && (rmupdf.sh /tmp/%:t:r.pdf &)"
-command LatexCheck execute "!textidote --output html --check" &spelllang "--dict ~/.vim/spell/" . &spelllang . ".utf-8.add % > /tmp/%:t.html || (firefox /tmp/%:t.html &)"
+
+let g:termdebug_wide = 1
+
+let g:ale_completion_autoimport = 0
+let g:ale_completion_enabled = 1
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\   'python': ['mypy', 'pylsp', 'ruff'],
+\   'tex': ['chktex'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['ruff_format', 'isort'],
+\}
+let g:ale_python_ruff_options = '--select ALL --ignore D212 --ignore D203 --ignore FA --ignore T --ignore TD002 --ignore TD003 --ignore S101 --ignore INP001 --ignore PLR0911 --ignore PLR0912 --ignore C901'
+let g:ale_python_isort_options = '--profile black --line-length 88 -tc'
 
 nnoremap ]a :ALENext -wrap<CR>
 nnoremap [a :ALEPrevious -wrap<CR>
 nnoremap ]e :ALENext -wrap -error<CR>
 nnoremap [e :ALEPrevious -wrap -error<CR>
+nnoremap <Leader>f :ALEFix<CR>
+nnoremap <Leader>r :ALERename<CR>
+nnoremap gt :ALEGoToDefinition<CR>
+nnoremap gr :ALEFindReferences<CR>
+nnoremap gi :ALEGoToImplementation<CR>
 
-let g:termdebug_wide = 1
-
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\   'python': ['ruff'],
-\}
-let g:ale_python_ruff_options = '--select ALL --ignore D212 --ignore D203 --ignore FA --ignore T --ignore TD002 --ignore TD003 --ignore S101 --ignore COM812 --ignore INP001'
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['ruff_format', 'isort'],
-\}
-
-let g:lsp_document_code_action_signs_enabled = 0
-hi link lspReference DraculaBgLight
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-    \   'name': 'clangd',
-    \   'cmd': {server_info->['clangd', '-background-index']},
-    \   'allowlist': ['c', 'cpp'],
-    \})
-endif
-if executable('jdtls')
-    au User lsp_setup call lsp#register_server({
-    \   'name': 'jdtls',
-    \   'cmd': {server_info->['jdtls', '-data', getcwd()]},
-    \   'allowlist': ['java'],
-    \})
-endif
-if executable('pylsp')
-    au User lsp_setup call lsp#register_server({
-    \   'name': 'pylsp',
-    \   'cmd': {server_info->['pylsp']},
-    \   'allowlist': ['python'],
-    \})
-endif
+let g:livepreview_previewer = 'zathura'

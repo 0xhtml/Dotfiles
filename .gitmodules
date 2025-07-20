@@ -19,3 +19,9 @@
 [submodule ".config/sway/zzzfoo"]
 	path = .config/sway/zzzfoo
 	url = https://github.com/andersju/zzzfoo
+[submodule ".config/foot/foot"]
+	path = .config/foot/dracula
+	url = https://github.com/dracula/foot
+[submodule ".vim/pack/plugins/start/vim-exchange"]
+	path = .vim/pack/plugins/start/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange
