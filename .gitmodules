@@ -25,3 +25,6 @@
 [submodule ".vim/pack/plugins/start/vim-exchange"]
 	path = .vim/pack/plugins/start/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange
+[submodule ".vim/pack/plugins/start/vim-argumentative"]
+	path = .vim/pack/plugins/start/vim-argumentative
+	url = https://github.com/PeterRincker/vim-argumentative
