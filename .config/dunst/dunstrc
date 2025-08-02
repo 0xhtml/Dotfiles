@@ -8,6 +8,7 @@
     highlight = "#BD93F9"
     idle_threshold = 120
     icon_position = "off"
+    monitor = "eDP-1"
 
 [urgency_low]
     foreground = "#6272A5"
