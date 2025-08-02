@@ -7,9 +7,6 @@
 [submodule ".vim/pack/plugins/start/tcomment_vim"]
 	path = .vim/pack/plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim
-[submodule ".config/alacritty/dracula"]
-	path = .config/alacritty/dracula
-	url = https://github.com/dracula/alacritty
 [submodule ".config/newsboat/dracula"]
 	path = .config/newsboat/dracula
 	url = https://github.com/dracula/newsboat
@@ -22,6 +19,9 @@
 [submodule ".config/foot/foot"]
 	path = .config/foot/dracula
 	url = https://github.com/dracula/foot
+[submodule ".config/qutebrowser/dracula"]
+	path = .config/qutebrowser/dracula
+	url = https://github.com/dracula/qutebrowser-dracula-theme.git
 [submodule ".vim/pack/plugins/start/vim-exchange"]
 	path = .vim/pack/plugins/start/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange
