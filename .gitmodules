@@ -1,0 +1,21 @@
+[submodule "man-pages"]
+	path = man-pages
+	url = https://github.com/dracula/man-pages
+[submodule ".vim/pack/themes/start/dracula"]
+	path = .vim/pack/themes/start/dracula
+	url = https://github.com/dracula/vim
+[submodule ".vim/pack/plugins/start/vim-sleuth"]
+	path = .vim/pack/plugins/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule ".vim/pack/plugins/start/tcomment_vim"]
+	path = .vim/pack/plugins/start/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim
+[submodule ".vim/pack/plugins/start/vim-exchange"]
+	path = .vim/pack/plugins/start/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange
+[submodule ".vim/pack/plugins/start/vim-argumentative"]
+	path = .vim/pack/plugins/start/vim-argumentative
+	url = https://github.com/PeterRincker/vim-argumentative
+[submodule ".vim/pack/plugins/start/vim-jsonl"]
+	path = .vim/pack/plugins/start/vim-jsonl
+	url = https://github.com/kyoh86/vim-jsonl
