@@ -19,3 +19,6 @@
 [submodule ".vim/pack/plugins/start/vim-jsonl"]
 	path = .vim/pack/plugins/start/vim-jsonl
 	url = https://github.com/kyoh86/vim-jsonl
+[submodule ".vim/pack/plugins/start/LargeFile"]
+	path = .vim/pack/plugins/start/LargeFile
+	url = https://github.com/vim-scripts/LargeFile
