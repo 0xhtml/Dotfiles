@@ -1,0 +1,251 @@
+input "type:keyboard" {
+    xkb_layout de
+    xkb_variant deadgraveacute
+    xkb_options caps:escape
+}
+
+input "type:touchpad" {
+    tap enabled
+}
+
+output "*" bg wallpaper.png center
+
+seat seat0 hide_cursor 2000
+
+set $mod Mod4
+
+floating_modifier $mod
+
+bindsym $mod+Return exec footclient
+bindsym $mod+n exec footclient -e nnn
+
+bindsym $mod+Shift+q kill
+bindsym $mod+l exec lock
+
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+d exec rofi -show filebrowser
+bindsym $mod+Tab exec rofi -show window
+bindgesture swipe:3:up exec rofi -show window
+bindsym $mod+Shift+s exec .config/sway/power-menu.sh
+
+bindsym $mod+j focus left
+bindsym $mod+k focus right
+
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move right
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit?' -B 'Yes' 'swaymsg exit'
+
+bindsym Print exec grim
+bindsym $mod+Print exec grim -g "$(slurp)"
+bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy -t image/png
+bindsym $mod+Shift+b exec grim - | zbarimg -1 --raw - | wl-copy
+bindsym $mod+Shift+c exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | wl-copy
+
+bindsym $mod+m exec dunstctl close
+bindsym $mod+Shift+m exec dunstctl close-all
+bindsym $mod+h exec dunstctl history-pop
+
+bindsym $mod+x [urgent=latest] focus
+bindsym $mod+4 resize set width 717 px
+
+bindsym $mod+u workspace 1
+bindsym $mod+i workspace 2
+bindsym $mod+o workspace 3
+bindsym $mod+p workspace 4
+bindsym $mod+7 workspace 5
+bindsym $mod+8 workspace 6
+bindsym $mod+9 workspace 7
+bindsym $mod+0 workspace 8
+
+bindsym $mod+Shift+u move container to workspace 1
+bindsym $mod+Shift+i move container to workspace 2
+bindsym $mod+Shift+o move container to workspace 3
+bindsym $mod+Shift+p move container to workspace 4
+bindsym $mod+Shift+7 move container to workspace 5
+bindsym $mod+Shift+8 move container to workspace 6
+bindsym $mod+Shift+9 move container to workspace 7
+bindsym $mod+Shift+0 move container to workspace 8
+
+mode resize {
+    bindsym j resize shrink width 10 px or 2 ppt
+    bindsym k resize grow width 10 px or 2 ppt
+    bindsym h resize shrink height 10 px or 2 ppt
+    bindsym l resize grow height 10 px or 2 ppt
+
+    bindsym Escape mode default
+}
+bindsym $mod+r mode resize
+
+bindsym XF86MonBrightnessUp exec .config/sway/bright.sh +
+bindsym XF86MonBrightnessDown exec .config/sway/bright.sh -
+
+bindsym XF86AudioMute exec .config/sway/vol.sh m
+bindsym XF86AudioRaiseVolume exec .config/sway/vol.sh +
+bindsym XF86AudioLowerVolume exec .config/sway/vol.sh -
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+mode "swap 1" {
+    bindsym i [workspace=1] move workspace swap; [workspace=2] move workspace 1; [workspace=swap] move workspace 2; mode default
+    bindsym o [workspace=1] move workspace swap; [workspace=3] move workspace 1; [workspace=swap] move workspace 3; mode default
+    bindsym p [workspace=1] move workspace swap; [workspace=4] move workspace 1; [workspace=swap] move workspace 4; mode default
+    bindsym 7 [workspace=1] move workspace swap; [workspace=5] move workspace 1; [workspace=swap] move workspace 5; mode default
+    bindsym 8 [workspace=1] move workspace swap; [workspace=6] move workspace 1; [workspace=swap] move workspace 6; mode default
+    bindsym 9 [workspace=1] move workspace swap; [workspace=7] move workspace 1; [workspace=swap] move workspace 7; mode default
+    bindsym 0 [workspace=1] move workspace swap; [workspace=8] move workspace 1; [workspace=swap] move workspace 8; mode default
+
+    bindsym Escape mode default
+}
+mode "swap 2" {
+    bindsym u [workspace=2] move workspace swap; [workspace=1] move workspace 2; [workspace=swap] move workspace 1; mode default
+    bindsym o [workspace=2] move workspace swap; [workspace=3] move workspace 2; [workspace=swap] move workspace 3; mode default
+    bindsym p [workspace=2] move workspace swap; [workspace=4] move workspace 2; [workspace=swap] move workspace 4; mode default
+    bindsym 7 [workspace=2] move workspace swap; [workspace=5] move workspace 2; [workspace=swap] move workspace 5; mode default
+    bindsym 8 [workspace=2] move workspace swap; [workspace=6] move workspace 2; [workspace=swap] move workspace 6; mode default
+    bindsym 9 [workspace=2] move workspace swap; [workspace=7] move workspace 2; [workspace=swap] move workspace 7; mode default
+    bindsym 0 [workspace=2] move workspace swap; [workspace=8] move workspace 2; [workspace=swap] move workspace 8; mode default
+
+    bindsym Escape mode default
+}
+mode "swap 3" {
+    bindsym u [workspace=3] move workspace swap; [workspace=1] move workspace 3; [workspace=swap] move workspace 1; mode default
+    bindsym i [workspace=3] move workspace swap; [workspace=2] move workspace 3; [workspace=swap] move workspace 2; mode default
+    bindsym p [workspace=3] move workspace swap; [workspace=4] move workspace 3; [workspace=swap] move workspace 4; mode default
+    bindsym 7 [workspace=3] move workspace swap; [workspace=5] move workspace 3; [workspace=swap] move workspace 5; mode default
+    bindsym 8 [workspace=3] move workspace swap; [workspace=6] move workspace 3; [workspace=swap] move workspace 6; mode default
+    bindsym 9 [workspace=3] move workspace swap; [workspace=7] move workspace 3; [workspace=swap] move workspace 7; mode default
+    bindsym 0 [workspace=3] move workspace swap; [workspace=8] move workspace 3; [workspace=swap] move workspace 8; mode default
+
+    bindsym Escape mode default
+}
+mode "swap 4" {
+    bindsym u [workspace=4] move workspace swap; [workspace=1] move workspace 4; [workspace=swap] move workspace 1; mode default
+    bindsym i [workspace=4] move workspace swap; [workspace=2] move workspace 4; [workspace=swap] move workspace 2; mode default
+    bindsym o [workspace=4] move workspace swap; [workspace=3] move workspace 4; [workspace=swap] move workspace 3; mode default
+    bindsym 7 [workspace=4] move workspace swap; [workspace=5] move workspace 4; [workspace=swap] move workspace 5; mode default
+    bindsym 8 [workspace=4] move workspace swap; [workspace=6] move workspace 4; [workspace=swap] move workspace 6; mode default
+    bindsym 9 [workspace=4] move workspace swap; [workspace=7] move workspace 4; [workspace=swap] move workspace 7; mode default
+    bindsym 0 [workspace=4] move workspace swap; [workspace=8] move workspace 4; [workspace=swap] move workspace 8; mode default
+
+    bindsym Escape mode default
+}
+mode "swap 5" {
+    bindsym u [workspace=5] move workspace swap; [workspace=1] move workspace 5; [workspace=swap] move workspace 1; mode default
+    bindsym i [workspace=5] move workspace swap; [workspace=2] move workspace 5; [workspace=swap] move workspace 2; mode default
+    bindsym o [workspace=5] move workspace swap; [workspace=3] move workspace 5; [workspace=swap] move workspace 3; mode default
+    bindsym p [workspace=5] move workspace swap; [workspace=4] move workspace 5; [workspace=swap] move workspace 4; mode default
+    bindsym 8 [workspace=5] move workspace swap; [workspace=6] move workspace 5; [workspace=swap] move workspace 6; mode default
+    bindsym 9 [workspace=5] move workspace swap; [workspace=7] move workspace 5; [workspace=swap] move workspace 7; mode default
+    bindsym 0 [workspace=5] move workspace swap; [workspace=8] move workspace 5; [workspace=swap] move workspace 8; mode default
+
+    bindsym Escape mode default
+}
+mode "swap 6" {
+    bindsym u [workspace=6] move workspace swap; [workspace=1] move workspace 6; [workspace=swap] move workspace 1; mode default
+    bindsym i [workspace=6] move workspace swap; [workspace=2] move workspace 6; [workspace=swap] move workspace 2; mode default
+    bindsym o [workspace=6] move workspace swap; [workspace=3] move workspace 6; [workspace=swap] move workspace 3; mode default
+    bindsym p [workspace=6] move workspace swap; [workspace=4] move workspace 6; [workspace=swap] move workspace 4; mode default
+    bindsym 7 [workspace=6] move workspace swap; [workspace=5] move workspace 6; [workspace=swap] move workspace 5; mode default
+    bindsym 9 [workspace=6] move workspace swap; [workspace=7] move workspace 6; [workspace=swap] move workspace 7; mode default
+    bindsym 0 [workspace=6] move workspace swap; [workspace=8] move workspace 6; [workspace=swap] move workspace 8; mode default
+
+    bindsym Escape mode default
+}
+mode "swap 7" {
+    bindsym u [workspace=7] move workspace swap; [workspace=1] move workspace 7; [workspace=swap] move workspace 1; mode default
+    bindsym i [workspace=7] move workspace swap; [workspace=2] move workspace 7; [workspace=swap] move workspace 2; mode default
+    bindsym o [workspace=7] move workspace swap; [workspace=3] move workspace 7; [workspace=swap] move workspace 3; mode default
+    bindsym p [workspace=7] move workspace swap; [workspace=4] move workspace 7; [workspace=swap] move workspace 4; mode default
+    bindsym 7 [workspace=7] move workspace swap; [workspace=5] move workspace 7; [workspace=swap] move workspace 5; mode default
+    bindsym 8 [workspace=7] move workspace swap; [workspace=6] move workspace 7; [workspace=swap] move workspace 6; mode default
+    bindsym 0 [workspace=7] move workspace swap; [workspace=8] move workspace 7; [workspace=swap] move workspace 8; mode default
+
+    bindsym Escape mode default
+}
+mode "swap 8" {
+    bindsym u [workspace=8] move workspace swap; [workspace=1] move workspace 8; [workspace=swap] move workspace 1; mode default
+    bindsym i [workspace=8] move workspace swap; [workspace=2] move workspace 8; [workspace=swap] move workspace 2; mode default
+    bindsym o [workspace=8] move workspace swap; [workspace=3] move workspace 8; [workspace=swap] move workspace 3; mode default
+    bindsym p [workspace=8] move workspace swap; [workspace=4] move workspace 8; [workspace=swap] move workspace 4; mode default
+    bindsym 7 [workspace=8] move workspace swap; [workspace=5] move workspace 8; [workspace=swap] move workspace 5; mode default
+    bindsym 8 [workspace=8] move workspace swap; [workspace=6] move workspace 8; [workspace=swap] move workspace 6; mode default
+    bindsym 9 [workspace=8] move workspace swap; [workspace=7] move workspace 8; [workspace=swap] move workspace 7; mode default
+
+    bindsym Escape mode default
+}
+mode swap {
+    bindsym u mode "swap 1"
+    bindsym i mode "swap 2"
+    bindsym o mode "swap 3"
+    bindsym p mode "swap 4"
+    bindsym 7 mode "swap 5"
+    bindsym 8 mode "swap 6"
+    bindsym 9 mode "swap 7"
+    bindsym 0 mode "swap 8"
+
+    bindsym Escape mode default
+}
+bindsym $mod+z mode swap
+
+font pango:monospace 9
+
+set $foreg #F8F8F2
+set $backg #282A36
+set $muted #44475A
+set $highl #BD93F9
+set $urgnt #FF5555
+
+#                       border bg     text   indica ch_border
+client.focused          $highl $backg $foreg $highl $highl
+client.focused_inactive $muted $backg $foreg $muted $muted
+client.unfocused        $backg $backg $foreg $backg $backg
+client.urgent           $urgnt $backg $foreg $urgnt $urgnt
+client.placeholder      $backg $backg $foreg $backg $backg
+
+bar {
+    colors {
+        background $backg
+        statusline $foreg
+        separator  $muted
+
+        #                  border bg     text
+        focused_workspace  $highl $highl $backg
+        active_workspace   $muted $muted $foreg
+        inactive_workspace $muted $backg $foreg
+        urgent_workspace   $urgnt $backg $urgnt
+        binding_mode       $urgnt $backg $urgnt
+    }
+
+    status_command py3status -b
+}
+
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 12
+
+exec dunst
+exec dex -a -e sway
+exec udiskie -s -f "footclient -e nnn"
+exec playerctld daemon
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [app_id=".*-float"] floating enable
+for_window [title="Entwicklerwerkzeuge.*"] floating enable
+
+include /etc/sway/config.d/*
+
+# TODO: get rid of systemd user session
+exec systemctl --user start sway-session.target
+exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+
+exec swayidle -w timeout 610 'lock' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' timeout 1800 'echo idle > .idle' resume 'echo active > .idle' before-sleep 'lock'

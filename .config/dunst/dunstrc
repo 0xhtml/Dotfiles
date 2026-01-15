@@ -1,0 +1,25 @@
+[global]
+    progress_bar_height = 6
+    frame_width = 2
+    frame_color = "#44475A"
+    font = "Monospace 10"
+    background = "#282A36"
+    foreground = "#F8F8F2"
+    highlight = "#BD93F9"
+    idle_threshold = 120
+    icon_position = "off"
+    monitor = "eDP-1"
+
+[urgency_low]
+    foreground = "#6272A5"
+    timeout = 10
+
+[urgency_normal]
+    timeout = 10
+
+[urgency_critical]
+    background = "#FF5555"
+    frame_color = "#FF5555"
+    timeout = 0
+
+# vim: ft=cfg

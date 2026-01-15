@@ -22,3 +22,6 @@
 [submodule ".vim/pack/plugins/start/LargeFile"]
 	path = .vim/pack/plugins/start/LargeFile
 	url = https://github.com/vim-scripts/LargeFile
+[submodule ".config/foot/dracula"]
+	path = .config/foot/dracula
+	url = https://github.com/dracula/foot
