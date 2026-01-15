@@ -1,0 +1,10 @@
+configuration {
+    modi: "drun,window,filebrowser";
+    drun-display-format: "{name}";
+    drun-match-fields: "name,exec";
+    font: "Monospace 10";
+    filebrowser {
+        directory: "/home/finn";
+    }
+}
+@theme "theme.rasi"

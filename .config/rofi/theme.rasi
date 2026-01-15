@@ -1,0 +1,31 @@
+* {
+    background-color: #282A36;
+    text-color: #F8F8F2;
+    border-color: #BD93F9;
+}
+window {
+    padding: 5px;
+    border: 2px;
+}
+listview {
+    padding: 2px 0 0;
+    scrollbar: true;
+    border: 2px dash 0 0;
+}
+element, inputbar {
+    padding: 1px;
+}
+element selected {
+    background-color: @border-color;
+}
+scrollbar {
+    handle-color: @text-color;
+}
+inputbar {
+    children: [prompt,textbox-colon,entry];
+}
+textbox-colon {
+    margin: 0 0.3em 0 0;
+    str: ":";
+    expand: false;
+}
