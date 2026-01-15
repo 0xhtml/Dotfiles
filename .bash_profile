@@ -1,17 +1,16 @@
 _exp() { [[ -z "${!1}" && -x "$2" ]] && export "$1=$2"; }
-
 _exp EDITOR /usr/bin/vim
+_exp CXX /usr/bin/g++
+_exp CC /usr/bin/gcc
 
 if [[ -x /usr/bin/nnn ]]; then
     export NNN_OPTS=Ae
     export NNN_TRASH=1
     export NNN_FCOLORS=D4DEB778E79F9F67D2E5E5D2
+    export NNN_ARCHIVE='\.(tar(\.(xz|gz))|zip?)$'
 fi
 
 [[ -d "${HOME}/bin" ]] && export PATH="${PATH}:${HOME}/bin"
-
-_exp CXX /usr/bin/clang++
-_exp CC /usr/bin/clang
 
 if [[ -z "${DISPLAY}" ]] && [[ "${XDG_VTNR}" -eq 1 ]] && [[ -x /usr/bin/sway ]]; then
     export MOZ_ENABLE_WAYLAND=1
