@@ -5,7 +5,7 @@ _exp CC /usr/bin/gcc
 
 if [[ -x /usr/bin/nnn ]]; then
     export NNN_OPTS=Ae
-    export NNN_TRASH=1
+    hash trash 2>/dev/null && export NNN_TRASH=1
     export NNN_FCOLORS=D4DEB778E79F9F67D2E5E5D2
     export NNN_ARCHIVE='\.(tar(\.(xz|gz))|zip?)$'
 fi
