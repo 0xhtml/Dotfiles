@@ -239,13 +239,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
-for_window [app_id=".*-float"] floating enable
-for_window [title="Entwicklerwerkzeuge.*"] floating enable
 
 include /etc/sway/config.d/*
 
-# TODO: get rid of systemd user session
-exec systemctl --user start sway-session.target
-exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
-
-exec swayidle -w timeout 610 '.config/sway/lock.sh' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' timeout 1800 'echo idle > .idle' resume 'echo active > .idle' before-sleep '.config/sway/lock.sh'
+exec swayidle -w timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' timeout 610 '.config/sway/lock.sh' timeout 1200 'systemctl suspend' timeout 1800 'echo idle > .idle' resume 'echo active > .idle' before-sleep '.config/sway/lock.sh'
