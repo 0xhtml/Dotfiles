@@ -17,7 +17,7 @@ unset DOTFILES
 [[ "${TERM}" == foot ]] && eval "$(dircolors -p | sed 's/TERM Eterm/TERM foot\n&/' | dircolors -)"
 
 [[ -r /usr/share/z/z.sh ]] && . /usr/share/z/z.sh
-[[ -r /usr/share/blesh/ble.sh ]] && . /usr/share/blesh/ble.sh
+[[ -r /usr/share/blesh/ble.sh ]] && . /usr/share/blesh/ble.sh --noattach
 
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
@@ -79,3 +79,5 @@ HISTFILESIZE=-1
 bind 'set mark-symlinked-directories on'
 bind 'set match-hidden-files off'
 bind 'set show-all-if-ambiguous on'
+
+[[ ${BLE_VERSION-} ]] && ble-attach
