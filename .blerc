@@ -1,0 +1,11 @@
+bleopt highlight_syntax=
+bleopt highlight_filename=
+bleopt highlight_variable=
+bleopt complete_auto_delay=100
+bleopt complete_menu_complete=
+bleopt complete_menu_filter=
+bleopt exec_elapsed_mark=
+bleopt exec_exit_mark=
+bleopt edit_marker=
+bleopt edit_marker_error=
+ble-face auto_complete=fg=61
