@@ -16,7 +16,7 @@ if [ $1 == "m" ]; then
     fi
 else
     pactl set-sink-mute $sink 0
-    pactl set-sink-volume $sink ${1}10%
+    pactl set-sink-volume $sink ${1}5%
 fi
 
 ivalue=$(pactl --format=json list sinks | jq -r 'map(select(.name == "'$sink'"))[0].volume | ."\(keys[0])".value_percent')
