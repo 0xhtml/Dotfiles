@@ -25,3 +25,6 @@
 [submodule ".config/foot/dracula"]
 	path = .config/foot/dracula
 	url = https://github.com/dracula/foot
+[submodule ".config/zathura/dracula"]
+	path = .config/zathura/dracula
+	url = https://github.com/dracula/zathura
