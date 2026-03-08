@@ -14,8 +14,6 @@ unset MANPAGES
 
 unset DOTFILES
 
-[[ "${TERM}" == foot ]] && eval "$(dircolors -p | sed 's/TERM Eterm/TERM foot\n&/' | dircolors -)"
-
 [[ -r /usr/share/z/z.sh ]] && . /usr/share/z/z.sh
 [[ -r /usr/share/blesh/ble.sh ]] && . /usr/share/blesh/ble.sh --noattach
 
@@ -28,7 +26,6 @@ alias du="du -h"
 alias df="df -h"
 alias free="free -h"
 alias nnn="echo 'Use Meta+n instead' && false"
-alias n="nnn"
 alias py="python"
 hash trash 2>/dev/null && alias rm="echo 'Use trash instead of rm' && false"
 alias mv="mv -i"
@@ -75,9 +72,9 @@ _osc7_cwd() {
 
 HISTSIZE=-1
 HISTFILESIZE=-1
+HISTCONTROL=erasedups
 
 bind 'set mark-symlinked-directories on'
 bind 'set match-hidden-files off'
-bind 'set show-all-if-ambiguous on'
 
 [[ ${BLE_VERSION-} ]] && ble-attach
