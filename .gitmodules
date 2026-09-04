@@ -19,9 +19,12 @@
 [submodule ".vim/pack/plugins/start/vim-jsonl"]
 	path = .vim/pack/plugins/start/vim-jsonl
 	url = https://github.com/kyoh86/vim-jsonl
-[submodule ".vim/pack/plugins/start/LargeFile"]
-	path = .vim/pack/plugins/start/LargeFile
-	url = https://github.com/vim-scripts/LargeFile
 [submodule ".config/zathura/dracula"]
 	path = .config/zathura/dracula
 	url = https://github.com/dracula/zathura
+[submodule ".vim/pack/plugins/start/vim-abolish"]
+	path = .vim/pack/plugins/start/vim-abolish
+	url = https://github.com/tpope/vim-abolish
+[submodule ".vim/pack/plugins/start/vim-hugefile"]
+	path = .vim/pack/plugins/start/vim-hugefile
+	url = https://github.com/mhinz/vim-hugefile
