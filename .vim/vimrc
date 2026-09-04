@@ -8,8 +8,6 @@ syntax on
 
 set termguicolors
 set incsearch
-set ignorecase
-set smartcase
 set shiftwidth=4
 set tabstop=4
 set scrolloff=3
@@ -27,6 +25,11 @@ set foldnestmax=2
 set spell
 set completeopt-=preview
 
+set ignorecase
+set smartcase
+nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
+nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
+
 let g:termdebug_wide = 1
 
 let g:ale_completion_autoimport = 0
@@ -34,23 +37,34 @@ let g:ale_completion_enabled = 1
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \   'c': ['cc'],
+\   'cpp': ['cc'],
+\   'javascript': ['deno'],
 \   'python': ['mypy', 'pylsp', 'ruff'],
-\   'tex': ['chktex'],
 \   'sh': ['shell'],
+\   'tex': ['chktex'],
+\   'zig': ['zlint', 'zls'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'c': ['clang-format'],
+\   'css': ['prettier'],
+\   'javascript': ['prettier'],
 \   'python': ['ruff_format', 'isort'],
 \   'sh': ['shfmt'],
+\   'zig': ['zigfmt'],
 \}
 let g:ale_c_cc_executable = $CC
 let g:ale_c_parse_makefile = 1
-let g:ale_python_isort_options = '--profile black --line-length 88 -tc'
+let g:ale_cpp_cc_executable = $CC
+let g:ale_python_isort_options = '--profile black --line-length 119 -tc'
 let g:ale_python_mypy_options = '--warn-unreachable --strict --allow-untyped-decorators'
-let g:ale_python_ruff_options = '--select ALL --ignore D212 --ignore D203 --ignore FA --ignore T --ignore TD002 --ignore TD003 --ignore S101 --ignore INP001 --ignore PLR0911 --ignore PLR0912 --ignore C901'
+let g:ale_python_ruff_format_options = '--line-length 119'
+let g:ale_python_ruff_options = '--select ALL --ignore D212 --ignore D203 --ignore FA --ignore T --ignore TD002 --ignore TD003 --ignore S101 --ignore INP001 --ignore PLR0911 --ignore PLR0912 --ignore C901 --ignore E501 --ignore CPY001'
 let g:ale_sh_shell_default_shell = 'sh'
 let g:ale_sh_shfmt_options = '-i 4'
+let g:ale_zig_zigfmt_executable = 'zig-0.15'
+let g:ale_zig_zls_executable = 'zls-0.15'
+let g:ale_cpp_cc_options = '-std=c++22 -Wall -Wextra -Wpedantic'
 
 nnoremap ]a :ALENext -wrap<CR>
 nnoremap [a :ALEPrevious -wrap<CR>
