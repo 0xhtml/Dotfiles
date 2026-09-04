@@ -9,5 +9,5 @@ bleopt exec_elapsed_mark=
 bleopt exec_exit_mark=
 bleopt edit_marker=
 bleopt edit_marker_error=
-bleopt history_share=1
 ble-face auto_complete=fg=61
+blehook CHPWD!='_auto_virtualenv'

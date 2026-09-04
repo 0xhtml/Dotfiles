@@ -36,6 +36,24 @@ alias watch="watch "
 alias fd="fd --prune"
 alias wget="curl -fLO"
 
+_auto_virtualenv() {
+    local dir=${PWD} env=
+
+    while :; do
+        if [[ -r "${dir}/env/bin/activate" ]]; then
+            env="${dir}/env"
+            break
+        fi
+        [[ "${dir}" == / ]] && break
+        dir=${dir%/*}
+        [[ -n "${dir}" ]] || dir=/
+    done
+
+    [[ -n "${env}" && -n "${VIRTUAL_ENV:-}" && "${env}" -ef "${VIRTUAL_ENV}" ]] && return
+    [[ -z "${VIRTUAL_ENV:-}" ]] || deactivate
+    [[ -z "${env}" ]] || . "${env}/bin/activate"
+}
+
 _nnn_info() {
     [[ -n "${NNNLVL}" ]] && echo "(N${NNNLVL}) "
 }
@@ -52,6 +70,7 @@ _host_info() {
     [[ -n "${SSH_CLIENT}" ]] && echo "\u@\H "
 }
 VIRTUAL_ENV_DISABLE_PROMPT=true
+_auto_virtualenv
 PS1="\[$(tput setaf 4)\]$(_host_info)\[$(tput setaf 1)\]\$(_nnn_info)\$(_env_info)\$(_git_info)\[$(tput setaf 4)\]\w\$ \[$(tput setaf 7)\]"
 
 _osc7_cwd() {
